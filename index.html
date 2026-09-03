@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A-ZTools - Free Online Tools</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 32px;
+    }
+
+    header p {
+      margin-top: 8px;
+      color: #cbd5e1;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      background: #eff6ff;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🛠️ A-ZTools</h1>
+    <p>Free Online Tools & Calculators</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>🧮 Percentage Calculator</h2>
+
+      <p>Calculate a percentage quickly and easily.</p>
+
+      <label>Percentage (%)</label>
+      <input type="number" id="percentage" placeholder="Example: 20">
+
+      <label>Number</label>
+      <input type="number" id="number" placeholder="Example: 250">
+
+      <button onclick="calculate()">Calculate</button>
+
+      <div id="result">
+        Your answer will appear here.
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 A-ZTools. Free online tools for everyone.
+  </footer>
+
+  <script>
+    function calculate() {
+      const percentage = Number(document.getElementById("percentage").value);
+      const number = Number(document.getElementById("number").value);
+
+      if (!percentage || !number) {
+        document.getElementById("result").innerText =
+          "Please enter both numbers.";
+        return;
+      }
+
+      const answer = (percentage / 100) * number;
+
+      document.getElementById("result").innerText =
+        percentage + "% of " + number + " = " + answer;
+    }
+  </script>
+
+</body>
+</html>
