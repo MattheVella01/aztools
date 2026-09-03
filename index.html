@@ -3,159 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A-ZTools - Free Online Tools</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #f4f7fb;
-      color: #222;
-    }
-
-    header {
-      background: #111827;
-      color: white;
-      padding: 25px 15px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 32px;
-    }
-
-    header p {
-      margin-top: 8px;
-      color: #cbd5e1;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: 30px auto;
-      padding: 15px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    .card h2 {
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #64748b;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 6px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    button {
-      width: 100%;
-      margin-top: 20px;
-      padding: 14px;
-      border: none;
-      border-radius: 8px;
-      background: #2563eb;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #1d4ed8;
-    }
-
-    #result {
-      margin-top: 20px;
-      padding: 15px;
-      border-radius: 8px;
-      background: #eff6ff;
-      font-size: 18px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #64748b;
-    }
-  </style>
+  <title>AzTools - Free Online Tools</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header>
-    <h1>🛠️ A-ZTools</h1>
-    <p>Free Online Tools & Calculators</p>
-  </header>
+<header>
+  <h1>AzTools</h1>
+  <p>Free online calculators, converters and useful tools</p>
 
-  <div class="container">
+  <input
+    type="search"
+    id="search"
+    placeholder="🔍 Search for a tool..."
+  >
+</header>
 
-    <div class="card">
-      <h2>🧮 Percentage Calculator</h2>
+<main>
 
-      <p>Calculate a percentage quickly and easily.</p>
+  <section class="tools">
 
-      <label>Percentage (%)</label>
-      <input type="number" id="percentage" placeholder="Example: 20">
+    <div class="tool">
+      <h2>Percentage Calculator</h2>
 
-      <label>Number</label>
-      <input type="number" id="number" placeholder="Example: 250">
+      <input type="number" id="percentNumber" placeholder="Enter number">
+      <input type="number" id="percentValue" placeholder="Enter percentage">
 
-      <button onclick="calculate()">Calculate</button>
+      <button onclick="calculatePercentage()">Calculate</button>
 
-      <div id="result">
-        Your answer will appear here.
-      </div>
+      <p id="percentResult"></p>
     </div>
 
-  </div>
 
-  <footer>
-    © 2026 A-ZTools. Free online tools for everyone.
-  </footer>
+    <div class="tool">
+      <h2>Age Calculator</h2>
 
-  <script>
-    function calculate() {
-      const percentage = Number(document.getElementById("percentage").value);
-      const number = Number(document.getElementById("number").value);
+      <input type="date" id="birthDate">
 
-      if (!percentage || !number) {
-        document.getElementById("result").innerText =
-          "Please enter both numbers.";
-        return;
-      }
+      <button onclick="calculateAge()">Calculate Age</button>
 
-      const answer = (percentage / 100) * number;
+      <p id="ageResult"></p>
+    </div>
 
-      document.getElementById("result").innerText =
-        percentage + "% of " + number + " = " + answer;
-    }
-  </script>
+
+    <div class="tool">
+      <h2>Discount Calculator</h2>
+
+      <input type="number" id="price" placeholder="Original price">
+      <input type="number" id="discount" placeholder="Discount %">
+
+      <button onclick="calculateDiscount()">Calculate</button>
+
+      <p id="discountResult"></p>
+    </div>
+
+
+    <div class="tool">
+      <h2>Simple Interest Calculator</h2>
+
+      <input type="number" id="principal" placeholder="Principal">
+      <input type="number" id="interestRate" placeholder="Interest rate %">
+      <input type="number" id="interestYears" placeholder="Years">
+
+      <button onclick="calculateInterest()">Calculate</button>
+
+      <p id="interestResult"></p>
+    </div>
+
+
+    <div class="tool">
+      <h2>Average Calculator</h2>
+
+      <input
+        type="text"
+        id="averageNumbers"
+        placeholder="Example: 10, 20, 30"
+      >
+
+      <button onclick="calculateAverage()">Calculate</button>
+
+      <p id="averageResult"></p>
+    </div>
+
+
+    <div class="tool">
+      <h2>Temperature Converter</h2>
+
+      <input type="number" id="temperature" placeholder="Temperature">
+
+      <select id="temperatureType">
+        <option value="CtoF">Celsius → Fahrenheit</option>
+        <option value="FtoC">Fahrenheit → Celsius</option>
+      </select>
+
+      <button onclick="convertTemperature()">Convert</button>
+
+      <p id="temperatureResult"></p>
+    </div>
+
+
+    <div class="tool">
+      <h2>Word Counter</h2>
+
+      <textarea
+        id="textInput"
+        placeholder="Type or paste your text here..."
+      ></textarea>
+
+      <button onclick="countWords()">Count Words</button>
+
+      <p id="wordResult"></p>
+    </div>
+
+
+    <div class="tool">
+      <h2>Random Number Generator</h2>
+
+      <input type="number" id="minimum" placeholder="Minimum">
+      <input type="number" id="maximum" placeholder="Maximum">
+
+      <button onclick="randomNumber()">Generate</button>
+
+      <p id="randomResult"></p>
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  <p>
+    © 2026 AzTools — Owned by Babatunde Matthew Oluwatofunmi.
+    All rights reserved.
+  </p>
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
