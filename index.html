@@ -3,145 +3,398 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AzTools - Free Online Tools</title>
+
+  <title>MTools — Smart Calculators & Useful Tools</title>
+  <meta name="description" content="MTools — simple, fast and useful calculators and everyday tools.">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <h1>AzTools</h1>
-  <p>Free online calculators, converters and useful tools</p>
+  <header class="site-header">
+    <h1>MTools</h1>
+    <p>Smart Calculators & Useful Tools</p>
+  </header>
 
-  <input
-    type="search"
-    id="search"
-    placeholder="🔍 Search for a tool..."
+  <main class="container">
+
+    <input
+      type="text"
+      id="search"
+      class="search-box"
+      placeholder="Search for a calculator..."
+      oninput="filterTools()"
+    >
+
+    <section class="tools-grid" id="toolsGrid">
+
+      <div class="tool-card" data-name="basic calculator">
+        <h2>Basic Calculator</h2>
+        <p>Perform quick addition, subtraction, multiplication and division.</p>
+        <button onclick="openTool('basicTool')">Open Calculator</button>
+      </div>
+
+      <div class="tool-card" data-name="percentage calculator">
+        <h2>Percentage Calculator</h2>
+        <p>Calculate percentages quickly and easily.</p>
+        <button onclick="openTool('percentageTool')">Open Calculator</button>
+      </div>
+
+      <div class="tool-card" data-name="loan calculator">
+        <h2>Loan Calculator</h2>
+        <p>Estimate your monthly loan payment and total repayment.</p>
+        <button onclick="openTool('loanTool')">Open Calculator</button>
+      </div>
+
+      <div class="tool-card" data-name="profit loss calculator">
+        <h2>Profit & Loss</h2>
+        <p>Calculate profit, loss and profit or loss percentage.</p>
+        <button onclick="openTool('profitTool')">Open Calculator</button>
+      </div>
+
+      <div class="tool-card" data-name="simple interest calculator">
+        <h2>Simple Interest</h2>
+        <p>Calculate simple interest and the final amount.</p>
+        <button onclick="openTool('interestTool')">Open Calculator</button>
+      </div>
+
+      <div class="tool-card" data-name="scientific calculator">
+        <h2>Scientific Calculator</h2>
+        <p>Use common scientific mathematical functions.</p>
+        <button onclick="openTool('scientificTool')">Open Calculator</button>
+      </div>
+
+      <div class="tool-card" data-name="unit converter">
+        <h2>Unit Converter</h2>
+        <p>Convert length, weight and temperature units.</p>
+        <button onclick="openTool('unitTool')">Open Converter</button>
+      </div>
+
+      <div class="tool-card" data-name="age calculator">
+        <h2>Age Calculator</h2>
+        <p>Calculate your age from your date of birth.</p>
+        <button onclick="openTool('ageTool')">Calculate Age</button>
+      </div>
+
+    </section>
+
+
+    <!-- BASIC CALCULATOR -->
+
+    <section id="basicTool" class="calculator-tool">
+
+      <div class="calculator-box">
+
+        <button class="close-button" onclick="closeTools()">Close</button>
+
+        <h2>Basic Calculator</h2>
+
+        <input
+          type="text"
+          id="basicInput"
+          placeholder="Example: 25 × 4 + 10"
+        >
+
+        <button onclick="calculateBasic()">Calculate</button>
+
+        <div id="basicResult" class="result-box"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PERCENTAGE CALCULATOR -->
+
+    <section id="percentageTool" class="calculator-tool">
+
+      <div class="calculator-box">
+
+        <button class="close-button" onclick="closeTools()">Close</button>
+
+        <h2>Percentage Calculator</h2>
+
+        <label>Value</label>
+
+        <input
+          type="number"
+          id="percentageValue"
+          placeholder="Enter value"
+        >
+
+        <label>Percentage</label>
+
+        <input
+          type="number"
+          id="percentageNumber"
+          placeholder="Enter percentage"
+        >
+
+        <button onclick="calculatePercentage()">Calculate</button>
+
+        <div id="percentageResult" class="result-box"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- LOAN CALCULATOR -->
+
+    <section id="loanTool" class="calculator-tool">
+
+      <div class="calculator-box">
+
+        <button class="close-button" onclick="closeTools()">Close</button>
+
+        <h2>Loan Calculator</h2>
+
+        <label>Loan Amount</label>
+
+        <input
+          type="number"
+          id="loanAmount"
+          placeholder="Example: 500000"
+        >
+
+        <label>Annual Interest Rate (%)</label>
+
+        <input
+          type="number"
+          id="loanRate"
+          placeholder="Example: 10"
+        >
+
+        <label>Loan Duration (Months)</label>
+
+        <input
+          type="number"
+          id="loanMonths"
+          placeholder="Example: 12"
+        >
+
+        <button onclick="calculateLoan()">Calculate</button>
+
+        <div id="loanResult" class="result-box"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROFIT AND LOSS -->
+
+    <section id="profitTool" class="calculator-tool">
+
+      <div class="calculator-box">
+
+        <button class="close-button" onclick="closeTools()">Close</button>
+
+        <h2>Profit & Loss Calculator</h2>
+
+        <label>Cost Price</label>
+
+        <input
+          type="number"
+          id="costPrice"
+          placeholder="Example: 10000"
+        >
+
+        <label>Selling Price</label>
+
+        <input
+          type="number"
+          id="sellingPrice"
+          placeholder="Example: 15000"
+        >
+
+        <button onclick="calculateProfit()">Calculate</button>
+
+        <div id="profitResult" class="result-box"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SIMPLE INTEREST -->
+
+    <section id="interestTool" class="calculator-tool">
+
+      <div class="calculator-box">
+
+        <button class="close-button" onclick="closeTools()">Close</button>
+
+        <h2>Simple Interest Calculator</h2>
+
+        <label>Principal Amount</label>
+
+        <input
+          type="number"
+          id="principal"
+          placeholder="Example: 100000"
+        >
+
+        <label>Interest Rate (%)</label>
+
+        <input
+          type="number"
+          id="interestRate"
+          placeholder="Example: 5"
+        >
+
+        <label>Time (Years)</label>
+
+        <input
+          type="number"
+          id="interestTime"
+          placeholder="Example: 2"
+        >
+
+        <button onclick="calculateInterest()">Calculate</button>
+
+        <div id="interestResult" class="result-box"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SCIENTIFIC CALCULATOR -->
+
+    <section id="scientificTool" class="calculator-tool">
+
+      <div class="calculator-box">
+
+        <button class="close-button" onclick="closeTools()">Close</button>
+
+        <h2>Scientific Calculator</h2>
+
+        <input
+          type="text"
+          id="scientificInput"
+          placeholder="Example: sqrt(25) + 5"
+        >
+
+        <button onclick="calculateScientific()">Calculate</button>
+
+        <div id="scientificResult" class="result-box"></div>
+
+        <p class="help-text">
+          Supported functions: sqrt, sin, cos, tan, log, abs and pow.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- UNIT CONVERTER -->
+
+    <section id="unitTool" class="calculator-tool">
+
+      <div class="calculator-box">
+
+        <button class="close-button" onclick="closeTools()">Close</button>
+
+        <h2>Unit Converter</h2>
+
+        <label>Value</label>
+
+        <input
+          type="number"
+          id="unitValue"
+          placeholder="Enter value"
+        >
+
+        <label>Conversion</label>
+
+        <select id="unitConversion">
+
+          <option value="m-km">
+            Metres → Kilometres
+          </option>
+
+          <option value="km-m">
+            Kilometres → Metres
+          </option>
+
+          <option value="kg-g">
+            Kilograms → Grams
+          </option>
+
+          <option value="g-kg">
+            Grams → Kilograms
+          </option>
+
+          <option value="c-f">
+            Celsius → Fahrenheit
+          </option>
+
+          <option value="f-c">
+            Fahrenheit → Celsius
+          </option>
+
+        </select>
+
+        <button onclick="convertUnits()">Convert</button>
+
+        <div id="unitResult" class="result-box"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- AGE CALCULATOR -->
+
+    <section id="ageTool" class="calculator-tool">
+
+      <div class="calculator-box">
+
+        <button class="close-button" onclick="closeTools()">Close</button>
+
+        <h2>Age Calculator</h2>
+
+        <label>Date of Birth</label>
+
+        <input
+          type="date"
+          id="dateOfBirth"
+        >
+
+        <button onclick="calculateAge()">Calculate Age</button>
+
+        <div id="ageResult" class="result-box"></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- WHATSAPP HELP -->
+
+  <a
+    class="whatsapp-button"
+    href="https://wa.me/2349158988112?text=Hello%20MTools%2C%20I%20would%20like%20to%20report%20a%20problem."
+    target="_blank"
+    rel="noopener noreferrer"
   >
-</header>
-
-<main>
-
-  <section class="tools">
-
-    <div class="tool">
-      <h2>Percentage Calculator</h2>
-
-      <input type="number" id="percentNumber" placeholder="Enter number">
-      <input type="number" id="percentValue" placeholder="Enter percentage">
-
-      <button onclick="calculatePercentage()">Calculate</button>
-
-      <p id="percentResult"></p>
-    </div>
+    💬 MTools Help
+  </a>
 
 
-    <div class="tool">
-      <h2>Age Calculator</h2>
+  <!-- FOOTER -->
 
-      <input type="date" id="birthDate">
-
-      <button onclick="calculateAge()">Calculate Age</button>
-
-      <p id="ageResult"></p>
-    </div>
+  <footer class="site-footer">
+    <p>Owned by Babatunde Matthew Oluwatofunmi © 2026</p>
+  </footer>
 
 
-    <div class="tool">
-      <h2>Discount Calculator</h2>
-
-      <input type="number" id="price" placeholder="Original price">
-      <input type="number" id="discount" placeholder="Discount %">
-
-      <button onclick="calculateDiscount()">Calculate</button>
-
-      <p id="discountResult"></p>
-    </div>
-
-
-    <div class="tool">
-      <h2>Simple Interest Calculator</h2>
-
-      <input type="number" id="principal" placeholder="Principal">
-      <input type="number" id="interestRate" placeholder="Interest rate %">
-      <input type="number" id="interestYears" placeholder="Years">
-
-      <button onclick="calculateInterest()">Calculate</button>
-
-      <p id="interestResult"></p>
-    </div>
-
-
-    <div class="tool">
-      <h2>Average Calculator</h2>
-
-      <input
-        type="text"
-        id="averageNumbers"
-        placeholder="Example: 10, 20, 30"
-      >
-
-      <button onclick="calculateAverage()">Calculate</button>
-
-      <p id="averageResult"></p>
-    </div>
-
-
-    <div class="tool">
-      <h2>Temperature Converter</h2>
-
-      <input type="number" id="temperature" placeholder="Temperature">
-
-      <select id="temperatureType">
-        <option value="CtoF">Celsius → Fahrenheit</option>
-        <option value="FtoC">Fahrenheit → Celsius</option>
-      </select>
-
-      <button onclick="convertTemperature()">Convert</button>
-
-      <p id="temperatureResult"></p>
-    </div>
-
-
-    <div class="tool">
-      <h2>Word Counter</h2>
-
-      <textarea
-        id="textInput"
-        placeholder="Type or paste your text here..."
-      ></textarea>
-
-      <button onclick="countWords()">Count Words</button>
-
-      <p id="wordResult"></p>
-    </div>
-
-
-    <div class="tool">
-      <h2>Random Number Generator</h2>
-
-      <input type="number" id="minimum" placeholder="Minimum">
-      <input type="number" id="maximum" placeholder="Maximum">
-
-      <button onclick="randomNumber()">Generate</button>
-
-      <p id="randomResult"></p>
-    </div>
-
-  </section>
-
-</main>
-
-
-<footer>
-  <p>
-    © 2026 AzTools — Owned by Babatunde Matthew Oluwatofunmi.
-    All rights reserved.
-  </p>
-</footer>
-
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
-</html>
+  </html>
