@@ -1,1 +1,202 @@
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+.site-header {
+  background: #101828;
+  color: white;
+  padding: 28px 18px;
+  text-align: center;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.site-header p {
+  margin: 8px 0 0;
+  color: #cbd5e1;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 22px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 15px 17px;
+  border: 1px solid #d0d5dd;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: #101828;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(240px, 1fr)
+  );
+  gap: 18px;
+}
+
+.tool-card {
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 5px 18px rgba(16, 24, 40, 0.06);
+}
+
+.tool-card h2 {
+  margin: 0 0 9px;
+  font-size: 20px;
+}
+
+.tool-card p {
+  color: #667085;
+  line-height: 1.5;
+  min-height: 48px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  background: #101828;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.calculator-tool {
+  display: none;
+  margin-top: 22px;
+}
+
+.calculator-tool.active {
+  display: block;
+}
+
+.calculator-box {
+  background: white;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 5px 18px rgba(16, 24, 40, 0.06);
+}
+
+.calculator-box h2 {
+  margin-top: 0;
+}
+
+.calculator-box label {
+  display: block;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.calculator-box input,
+.calculator-box select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d0d5dd;
+  border-radius: 9px;
+  margin: 7px 0 12px;
+  font-size: 16px;
+  outline: none;
+}
+
+.calculator-box input:focus,
+.calculator-box select:focus {
+  border-color: #101828;
+}
+
+.close-button {
+  float: right;
+  background: #667085;
+}
+
+.result-box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #eef2ff;
+  font-weight: 700;
+  line-height: 1.5;
+  min-height: 20px;
+}
+
+.help-text {
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.whatsapp-button {
+  position: fixed;
+  right: 18px;
+  bottom: 68px;
+  background: #25d366;
+  color: white;
+  padding: 14px 19px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+  z-index: 1000;
+}
+
+.whatsapp-button:hover {
+  opacity: 0.9;
+}
+
+.site-footer {
+  text-align: center;
+  color: #667085;
+  padding: 45px 15px 22px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+
+  .site-header h1 {
+    font-size: 30px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .whatsapp-button {
+    right: 12px;
+    bottom: 65px;
+    padding: 13px 16px;
+  }
+
+}
